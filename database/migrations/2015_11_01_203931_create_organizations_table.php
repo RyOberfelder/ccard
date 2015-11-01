@@ -12,7 +12,14 @@ class CreateOrganizationsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		$table->increments('id');
+		$table->string('title');
+		$table->text('description');
+		$table->string('city');
+		$table->string('state');
+		$table->string('country');
+		$table->string('type');
+		$table->timestamps();
 	}
 
 	/**

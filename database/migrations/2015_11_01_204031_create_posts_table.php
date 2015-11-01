@@ -12,7 +12,12 @@ class CreatePostsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		$table->increments('id');
+		$table->integer('user_id')->unsigned();
+		$table->string('subject');
+		$table->text('body');
+		$table->timestamps();
+
 	}
 
 	/**

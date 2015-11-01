@@ -11,11 +11,18 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
+Route::get('/', function(){
+  return view('welcome');
+});
+Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
+Route::resource('organizations', 'OrganizationsController');
+Route::resource('comments', 'CommentsController');
+Route::resource('events', 'EventsController');
+Route::resource('articles', 'ArticlesController');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+
+  ]);

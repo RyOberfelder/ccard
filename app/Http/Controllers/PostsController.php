@@ -1,84 +1,43 @@
 <?php namespace App\Http\Controllers;
 
+use App\Post;
 use App\Http\Requests;
+use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
 class PostsController extends Controller {
+	public function index(){
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
+		$posts = Post::all();
+
+
+		return view('posts.index')->with('posts', $posts);
 	}
+	public function show($id){
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+		$post = Post::findOrFail($id);
+
+		return view('posts.show')->with('post', $post);
 	}
+	public function update($id, PostRequest $request){
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+		$post = Post::findOrFail($id);
+		$post->update($request->all());
+
+		return redirect('posts');
 	}
+	public function create(){
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		return view('posts.create');
 	}
+	public function store(PostRequest $request){
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+		Post::create($request->all());
+		return redirect('posts');
 	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+	public function edit($id){
+		$post = Post::findOrFail($id);
+		return view('posts.edit', compact('post'));
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }

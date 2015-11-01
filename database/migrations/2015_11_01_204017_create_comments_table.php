@@ -12,7 +12,10 @@ class CreateCommentsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		$table->increments('id');
+		$table->string('user');
+		$table->text('body');
+		$table->timestamps();
 	}
 
 	/**
