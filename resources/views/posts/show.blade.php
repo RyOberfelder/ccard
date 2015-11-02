@@ -6,5 +6,9 @@
     <p>
       {{$post->body}}
     </p>
+</h3> Here is the other part of the post</h3>
+    <p>
+      {{$post}}
+    </p>
 
 @stop

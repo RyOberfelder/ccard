@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller {
+	public function __construct()
+	{
+		$this->middleware('auth', ['only' => 'create']);
+	}
+
 	public function index(){
 
 		$posts = Post::all();
@@ -33,7 +38,10 @@ class PostsController extends Controller {
 	}
 	public function store(PostRequest $request){
 
-		Post::create($request->all());
+		$post = new Post($request->all());
+
+		\Auth::user()->posts()->save($post);
+
 		return redirect('posts');
 	}
 	public function edit($id){

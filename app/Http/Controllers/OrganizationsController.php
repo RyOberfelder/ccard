@@ -7,6 +7,11 @@ use Request;
 
 class OrganizationsController extends Controller {
 
+//	public function __construct()
+//	{
+//		$this->middleware('organization', ['except' => 'create']);
+//	}
+
 	public function index(){
 
     $organizations = Organization::all();
