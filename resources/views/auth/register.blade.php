@@ -22,6 +22,20 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
+							<label class="col-md-4 control-label">User Name</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="uname" value="{{ old('uname') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">E-Mail Address</label>
+							<div class="col-md-6">
+								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-md-4 control-label">First Name</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="fname" value="{{ old('fname') }}">
@@ -36,16 +50,30 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">User Name</label>
+							<label class="col-md-4 control-label">City</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="uname" value="{{ old('uname') }}">
+								<input type="text" class="form-control" name="city">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">State</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="text" class="form-control" name="state">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Country</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="country">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Descripe Connection to HIV/Aids</label>
+							<div class="col-md-6">
+								<textarea class="form-control" name="description" cols="40" rows="5"></textarea>
 							</div>
 						</div>
 
