@@ -57,7 +57,7 @@ class PostsController extends Controller {
 
 	$post->delete();
 
-	return Redirect::action('HomeController@posts');
+	return redirect('/home/posts');
 
 	}
 }
