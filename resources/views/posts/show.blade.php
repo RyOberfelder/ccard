@@ -8,6 +8,10 @@
     </p>
 </h3> Here is the other part of the post</h3>
     <p>
-      {{$post}}
+      {{User::findOrFail($post->user_id)}}
     </p>
+    @foreach($post->comments as $comment)
+      @include('comments.show', ['comment' => $comment])
+
+    @endforeach
 @stop

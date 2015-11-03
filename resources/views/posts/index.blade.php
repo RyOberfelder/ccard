@@ -2,18 +2,29 @@
 
 @section('content')
 
-<h1>Posts</h1>
-
-@foreach($posts as $post)
-  <div class='post-wall'>
-    <h3>
-      <a href="/posts/{{$post->id}}">{{$post->subject}}</a>
-    </h3>
-    <p>
-      {{$post->body}}
-    </p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Posts <a href="/posts/create">create</a></h2>
   </div>
+  <div class="panel-body">
 
-@endforeach
+
+    @foreach($posts as $post)
+    <div class="panel panel-default">
+      <div class="panel-heading"><a href="/posts/{{$post->id}}">{{$post->subject}}</a></div>
+      <div class="panel-body">
+        <p>
+      {{$post->body}}
+        </p>
+        <p>
+          {{$post->creator}}
+        </p>
+      </div>
+    </div>
+
+    @endforeach
+  </div>
+</div>
+
 
 @stop

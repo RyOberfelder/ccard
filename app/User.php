@@ -39,5 +39,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function isAnOrganization(){
 		return false;
 	}
+	public function comments(){
+		return $this->morphMany('App\Comment', 'creator');
+	}
 
 }

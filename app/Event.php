@@ -6,4 +6,8 @@ class Event extends Model {
 
 	//
 
+
+	public function comments(){
+		return $this->morphMany('App\Comment', 'environment');
+	}
 }
