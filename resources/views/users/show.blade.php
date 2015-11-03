@@ -2,9 +2,11 @@
 
 @section('content')
 
-<h1>{{$user->uname}}</h1>
-    <p>
-      Hello {{$user->fname}} {{$user->lname}} 
-    </p>
 
+<div class="panel panel-default">
+  <div class="panel-heading">{{$user->uname}}</div>
+  <div class="panel-body">
+    Hello {{$user->fname}} {{$user->lname}}
+  </div>
+</div>
 @stop
