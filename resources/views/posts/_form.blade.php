@@ -6,4 +6,4 @@
   {!! Form::label('body','Body:') !!}
   {!! Form::textarea('body') !!}
 </div>
-{{!! Form::submit($submitButton)!!}}
+{!! Form::submit($submitButton)!!}

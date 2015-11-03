@@ -16,6 +16,9 @@ Route::get('/', function(){
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/home/posts', 'HomeController@posts');
+Route::get('/home/articles', 'HomeController@articles');
+Route::get('/home/events', 'HomeController@events');
 Route::resource('posts', 'PostsController');
 Route::resource('users', 'UsersController');
 Route::resource('organizations', 'OrganizationsController');

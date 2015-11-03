@@ -34,5 +34,22 @@ class HomeController extends Controller {
 
 		return view('home', compact('user'));
 	}
+	public function posts(){
+		$user = \Auth::user();
+		return view('home.posts', compact('user'));
+	}
+
+	public function articles(){
+		$user = \Auth::user();
+
+		return view('home.articles', compact('user'));
+	}
+
+	public function events(){
+		$user = \Auth::user();
+
+		return view('home.events', compact('user'));
+
+	}
 
 }

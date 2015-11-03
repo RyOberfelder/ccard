@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use App\Http\Requests;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
@@ -22,8 +23,9 @@ class PostsController extends Controller {
 	public function show($id){
 
 		$post = Post::findOrFail($id);
+		$user = User::findOrFail($post->user_id);
 
-		return view('posts.show')->with('post', $post);
+		return view('posts.show')->with('post', $post)->with('user', $user);
 	}
 	public function update($id, PostRequest $request){
 
@@ -42,10 +44,20 @@ class PostsController extends Controller {
 
 		\Auth::user()->posts()->save($post);
 
-		return redirect('posts');
+		return redirect('/home/posts');
 	}
 	public function edit($id){
 		$post = Post::findOrFail($id);
 		return view('posts.edit', compact('post'));
+	}
+
+	public function destroy($id)
+	{
+		$post = Post::findOrFail($id);
+
+	$post->delete();
+
+	return Redirect::action('HomeController@posts');
+
 	}
 }

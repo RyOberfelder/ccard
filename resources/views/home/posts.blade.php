@@ -17,7 +17,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/home/posts">Posts</a></li>
+        <li class="active"><a href="/posts">Posts</a></li>
         <li class="disabled"><a href="/users">Users</a></li>
         <li class="disabled"><a href="/organizations">Organizations</a></li>
         <li class="disabled"><a href="/events">Events</a></li>
@@ -45,9 +45,8 @@
 
 <div class="panel panel-default col-md-5">
   <div class="panel-body">
-    @include('users.show', ['user' => $user])
-		@include('users.destroy',['user => $user'])
+    @include('posts.index', ['posts' => $user->posts, 'user' => $user])
+		@include('posts.create')
   </div>
 </div>
-
 @endsection

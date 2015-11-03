@@ -30,5 +30,13 @@ class UsersController extends Controller {
 		User::create($store);
 		return redirect('users');
 	}
+	public function destroy($id)
+	{
+		$user = User::findOrFail($id);
+
+	$user->delete();
+
+	return redirect('/');
+	}
 
 }

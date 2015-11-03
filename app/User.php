@@ -42,5 +42,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function comments(){
 		return $this->morphMany('App\Comment', 'creator');
 	}
+	public function connections()
+{
+		return $this->belongsToMany('App\User');
+}
 
 }
