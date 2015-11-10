@@ -60,4 +60,15 @@ class PostsController extends Controller {
 	return redirect('/home/posts');
 
 	}
+
+	public function connect($id)
+	{
+		$post = Post::findOrFail($id);
+
+	$post->delete();
+
+	return redirect('/home/posts');
+
+	}
+
 }

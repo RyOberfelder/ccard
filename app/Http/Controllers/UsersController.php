@@ -10,9 +10,9 @@ class UsersController extends Controller {
 	public function index(){
 
 		$users = User::all();
+		$authuser = \Auth::user();
 
-
-		return view('users.index')->with('users', $users);
+		return view('users.index')->with('users', $users)->with('authuser', $authuser);
 	}
 	public function show($id){
 

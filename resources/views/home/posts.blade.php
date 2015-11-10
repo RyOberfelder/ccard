@@ -23,6 +23,7 @@
         <li class="disabled"><a href="/events">Events</a></li>
         <li class="disabled"><a href="/comments">Comments</a></li>
         <li class="disabled"><a href="/articles">Article</a></li>
+        <li><a href="/home/requests">Requests</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

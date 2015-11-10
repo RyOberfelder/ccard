@@ -19,6 +19,7 @@
     <h5>
       Email: {{$user->email}}
     </h5>
+    @include('requests.create', ['user' => $user, 'authuser' => $authuser])
   </div>
 
 @endforeach
