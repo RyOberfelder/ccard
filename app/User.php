@@ -60,5 +60,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		{
 			$this->connections()->detach($user->id);
 		}
+		public function events()
+	{
+			return $this->morphMany('App\Event', 'eventable');
+	}
 
 }

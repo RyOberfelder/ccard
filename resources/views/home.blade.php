@@ -20,7 +20,7 @@
         <li {{ Request::is( 'home/posts') ? 'class=active' : '' }}><a href="/home/posts">Posts</a></li>
         <li {{ Request::is( 'home/users') ? 'class=active' : '' }}><a href="/home/users">Users</a></li>
         <li {{ Request::is( 'home/organizations') ? 'class=active' : 'class=disabled' }}><a href="/home/organizations">Organizations</a></li>
-        <li {{ Request::is( 'home/events') ? 'class=active' : 'class=disabled' }}><a href="home/events">Events</a></li>
+        <li {{ Request::is( 'home/events') ? 'class=active' : '' }}><a href="home/events">Events</a></li>
         <li {{ Request::is( 'home/news') ? 'class=active' : 'class=disabled' }}><a href="home/news">News</a></li>
         <li {{ Request::is( 'home/news') ? 'class=active' : '' }}><a href="/home/connections">Connections</a></li>
       </ul>

@@ -18,9 +18,9 @@ Route::get('/', function(){
 Route::get('/home', 'HomeController@index');
 Route::get('/home/posts', 'PostsController@home');
 Route::get('/home/articles', 'HomeController@articles');
-Route::get('/home/events', 'HomeController@events');
+Route::get('/home/events', 'EventsController@home');
 Route::get('/home/connections', 'ConnectRequestsController@home');
-Route::get('/home/users', 'HomeController@users');
+Route::get('/home/users', 'UsersController@home');
 // the following are posts routes
 Route::resource('posts', 'PostsController');
 

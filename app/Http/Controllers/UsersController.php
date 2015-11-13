@@ -16,6 +16,12 @@ class UsersController extends Controller {
 			->with('users', $users)
 			->with('authuser', $this->getAuthUser());
 	}
+	public function home(){
+
+			$users = $this->getAuthUser()->connections;
+			return view('home.users', compact('users'));
+
+	}
 	public function show($id){
 
 		$user = User::findOrFail($id);
