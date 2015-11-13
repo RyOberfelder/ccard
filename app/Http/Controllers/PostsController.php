@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller {
+
 	public function __construct()
 	{
 		$this->middleware('auth');
@@ -15,10 +16,23 @@ class PostsController extends Controller {
 
 	public function index(){
 
-		$posts = Post::all();
+		$posts = $this->getAuthUser()->posts();
 
 
 		return view('posts.index')->with('posts', $posts);
+	}
+
+	public function home(){
+		$posts = $this->getAuthUser()->posts;
+		$users = $this->getAuthUser()->connections;
+		foreach ($users as $user)
+			$uposts = $user->posts;
+			if(!empty($uposts)){
+				foreach($uposts as $post)
+					$posts[] = $post;
+			}
+
+		return view('home.posts')->with('posts', $posts);
 	}
 	public function show($id){
 
@@ -42,7 +56,7 @@ class PostsController extends Controller {
 
 		$post = new Post($request->all());
 
-		\Auth::user()->posts()->save($post);
+		$this->getAuthUser()->posts()->save($post);
 
 		return redirect('/home/posts');
 	}
@@ -69,6 +83,10 @@ class PostsController extends Controller {
 
 	return redirect('/home/posts');
 
-	}
+// This is the function that you can use to get the auth user
+}
+public function getAuthUser(){
+	return \Auth::user();
+}
 
 }

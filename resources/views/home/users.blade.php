@@ -4,8 +4,7 @@
 
 <div class="panel panel-default col-md-5">
   <div class="panel-body">
-    @include('posts.index', ['posts' => $posts])
-		@include('posts.create')
+    @include('users.connections', ['users' => $users])
   </div>
 </div>
 @endsection

@@ -13,6 +13,7 @@
         user description:<br/>
         {{$user->description}}
       </p>
+      @include('connections.create', ['user' => $user, 'authuser' => $authuser])
     </div>
   </div>
 </div>

@@ -16,17 +16,28 @@ Route::get('/', function(){
 });
 
 Route::get('/home', 'HomeController@index');
-Route::get('/home/posts', 'HomeController@posts');
+Route::get('/home/posts', 'PostsController@home');
 Route::get('/home/articles', 'HomeController@articles');
 Route::get('/home/events', 'HomeController@events');
-Route::get('/home/requests', 'RequestsController@home');
+Route::get('/home/connections', 'ConnectRequestsController@home');
+Route::get('/home/users', 'HomeController@users');
+// the following are posts routes
 Route::resource('posts', 'PostsController');
+
+// the following are user routes
+Route::post('home/accept-connection/{id}', 'UsersController@accept');
+Route::delete('home/reject-connection/{id}', 'ConnectRequestsController@destroy');
 Route::resource('users', 'UsersController');
+
+
 Route::resource('organizations', 'OrganizationsController');
 Route::resource('comments', 'CommentsController');
 Route::resource('events', 'EventsController');
 Route::resource('articles', 'ArticlesController');
-Route::resource('requests', 'RequestsController');
+
+
+// the following are the connections routes
+Route::post('connections/create/{id}', 'ConnectRequestsController@store');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

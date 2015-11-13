@@ -17,13 +17,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/home/posts">Posts</a></li>
-        <li class="disabled"><a href="/users">Users</a></li>
-        <li class="disabled"><a href="/organizations">Organizations</a></li>
-        <li class="disabled"><a href="/events">Events</a></li>
-        <li class="disabled"><a href="/comments">Comments</a></li>
-        <li class="disabled"><a href="/articles">Article</a></li>
-        <li><a href="/home/requests">Requests</a></li>
+        <li {{ Request::is( 'home/posts') ? 'class=active' : '' }}><a href="/home/posts">Posts</a></li>
+        <li {{ Request::is( 'home/users') ? 'class=active' : '' }}><a href="/home/users">Users</a></li>
+        <li {{ Request::is( 'home/organizations') ? 'class=active' : 'class=disabled' }}><a href="/home/organizations">Organizations</a></li>
+        <li {{ Request::is( 'home/events') ? 'class=active' : 'class=disabled' }}><a href="home/events">Events</a></li>
+        <li {{ Request::is( 'home/news') ? 'class=active' : 'class=disabled' }}><a href="home/news">News</a></li>
+        <li {{ Request::is( 'home/news') ? 'class=active' : '' }}><a href="/home/connections">Connections</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -39,16 +38,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 @endsection
 
 @section('content')
 
-<div class="panel panel-default col-md-5">
-  <div class="panel-body">
-    @include('users.show', ['user' => $user])
-		@include('users.destroy',['user => $user'])
-  </div>
-</div>
+@yield('main')
 
 @endsection

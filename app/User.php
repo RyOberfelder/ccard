@@ -42,13 +42,23 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function comments(){
 		return $this->morphMany('App\Comment', 'creator');
 	}
+	public function connectRequests()
+	{
+			return $this->hasMany('App\ConnectRequest');
+	}
 	public function connections()
-{
-		return $this->belongsToMany('App\User');
-}
-public function requests()
-{
-		return $this->hasMany('App\Request');
-}
+	{
+			return $this->belongsToMany('App\User', 'connections_users', 'user_id', 'connection_id');
+	}
+
+	public function addConnection(User $user)
+		{
+			$this->connections()->attach($user->id);
+		}
+
+		public function removeConnection(User $user)
+		{
+			$this->connections()->detach($user->id);
+		}
 
 }

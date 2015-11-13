@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use App\ConnectRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Request;
@@ -10,15 +11,17 @@ class UsersController extends Controller {
 	public function index(){
 
 		$users = User::all();
-		$authuser = \Auth::user();
 
-		return view('users.index')->with('users', $users)->with('authuser', $authuser);
+		return view('users.index')
+			->with('users', $users)
+			->with('authuser', $this->getAuthUser());
 	}
 	public function show($id){
 
 		$user = User::findOrFail($id);
+		$authuser = $this->getAuthUser();
 
-		return view('users.show')->with('user', $user);
+		return view('users.show')->with('user', $user)->with('authuser', $authuser);
 	}
 	public function create(){
 
@@ -30,6 +33,17 @@ class UsersController extends Controller {
 		User::create($store);
 		return redirect('users');
 	}
+
+	public function accept($id){
+
+		$this->getAuthUser()->addConnection(User::findOrFail($id));
+
+		\DB::table('connect_requests')
+			->where('user_id', $this->getAuthUser()->id)
+			->where('authuser_id', $id)->delete();
+
+		return redirect('/home/connections');
+	}
 	public function destroy($id)
 	{
 		$user = User::findOrFail($id);
@@ -37,6 +51,14 @@ class UsersController extends Controller {
 	$user->delete();
 
 	return redirect('/');
+	}
+
+	function getAuthUser(){
+		return \Auth::user();
+	}
+
+	function getConnectionRequests(){
+		return $this->getAuthUser()->connectrequests();
 	}
 
 }

@@ -1,9 +1,5 @@
-@extends('app')
-
-@section('content')
-
 <div class="user-wall">
-<h1>Users</h1>
+<h1>Your Connections</h1>
 
 @foreach($users as $user)
   <div class='user'>
@@ -22,7 +18,3 @@
   </div>
 
 @endforeach
-
-</div>
-
-@stop
