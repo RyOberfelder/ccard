@@ -36,7 +36,7 @@ class UsersController extends Controller {
 
 	public function accept($id){
 
-		User::findOrFail($id)->addConnection($this->getAuthUser()->id);
+		User::findOrFail($id)->addConnection($this->getAuthUser());
 
 		\DB::table('connect_requests')
 			->where('user_id', $this->getAuthUser()->id)
