@@ -26,7 +26,7 @@ Route::get('/home/organizations/events', 'OrganizationsController@events');
 Route::get('/home/organizations/connections', 'OrganizationsController@connections');
 Route::get('/home/organizations/users', 'OrganizationsController@users');
 Route::get('/home/organization/{id}', 'OrganizationsController@toAssume');
-Route::post('home/accept-organization/{$id}', 'OrganizationsController@accept');
+Route::post('/home/accept-organization/{$id}', 'OrganizationsController@accept');
 
 // the following are normal home routes
 Route::get('/home', 'HomeController@index');
