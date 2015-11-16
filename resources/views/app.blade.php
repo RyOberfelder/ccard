@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Posts</title>
+    @yield('title')
     <meta charset="utf-8">
     <!-- Here is the Jquery that I needed-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

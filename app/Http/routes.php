@@ -49,6 +49,7 @@ Route::resource('organizations', 'OrganizationsController');
 Route::resource('comments', 'CommentsController');
 Route::resource('events', 'EventsController');
 Route::resource('articles', 'ArticlesController');
+Route::post('articles', 'ArticlesController@store');
 
 
 // the following are the connections routes
