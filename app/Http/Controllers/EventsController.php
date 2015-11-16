@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class EventsController extends Controller {
 
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -20,14 +25,36 @@ class EventsController extends Controller {
 	public function home(){
 		$events = $this->getAuthUser()->events;
 		$users = $this->getAuthUser()->connections;
+		$organizations = $this->getAuthUser()->organizations;
 		foreach ($users as $user)
 			$uevents = $user->events;
 			if(!empty($uevents)){
 				foreach($uevents as $event)
 					$events[] = $event;
 			}
+		foreach ($organizations as $organization)
+			$uevents = $organization->events;
+			if(!empty($uevents)){
+				foreach($uevents as $event)
+					$events[] = $event;
+			}
+
 
 		return view('home.events')->with('events', $events);
+	}
+
+	public function Ostore(Request $request){
+
+		$this->validate($request, [
+		'title' => 'required',
+		'event_due' => 'required',
+		]);
+
+		$event = new Event($request->all());
+
+		session('organization')->events()->save($event);
+
+		return redirect('/home/organizations/events');
 	}
 
 	/**

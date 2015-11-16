@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav">
         <li {{ Request::is( 'posts') ? 'class=active' : '' }}><a href="/posts">Posts</a></li>
         <li {{ Request::is( 'users') ? 'class=active' : '' }}><a href="/users">Users</a></li>
-        <li {{ Request::is( 'organizations') ? 'class=active' : 'class=disabled' }}><a href="/organizations">Organizations</a></li>
+        <li {{ Request::is( 'organizations') ? 'class=active' : '' }}><a href="/organizations">Organizations</a></li>
         <li {{ Request::is( 'events') ? 'class=active' : '' }}><a href="/events">Events</a></li>
         <li {{ Request::is( 'news') ? 'class=active' : 'class=disabled' }}><a href="/news">News</a></li>
         <li {{ Request::is( 'connections') ? 'class=active' : '' }}><a href="/connections">Connections</a></li>
@@ -65,7 +65,7 @@
                 </li>
                 <li {{ Request::is( 'home/posts') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/posts">Posts</a></li>
                 <li {{ Request::is( 'home/users') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/users">Users</a></li>
-                <li {{ Request::is( 'home/organizations') ? 'class=sidebar-nav-li-active' : 'class=sidebar-nav-li-disabled' }}><a href="/home/organizations">Organizations</a></li>
+                <li {{ Request::is( 'home/organizations') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/organizations">Organizations</a></li>
                 <li {{ Request::is( 'home/events') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/events">Events</a></li>
                 <li {{ Request::is( 'home/news') ? 'class=sidebar-nav-li-active' : 'class=sidebar-nav-li-disabled' }}><a href="/home/news">News</a></li>
                 <li {{ Request::is( 'home/connections') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/connections">Connections</a></li>

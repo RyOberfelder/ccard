@@ -8,6 +8,11 @@ use Request;
 
 class UsersController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('userMiddleware', ['only' => [ 'destroy']]);
+	}
+
 	public function index(){
 
 		$users = User::all();

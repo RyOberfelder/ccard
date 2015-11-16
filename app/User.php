@@ -33,7 +33,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function posts()
 	{
-		return $this->hasMany('App\Post');
+		return $this->morphMany('App\Post', 'user');
 	}
 
 	public function isAnOrganization(){
@@ -46,6 +46,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 			return $this->hasMany('App\ConnectRequest');
 	}
+
+	public function organizations()
+	{
+			return $this->belongsToMany('App\Organization', 'organizations_users', 'user_id', 'organization_id');
+	}
+
 	public function connections()
 	{
 			return $this->belongsToMany('App\User', 'connections_users', 'user_id', 'connection_id');

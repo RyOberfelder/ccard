@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration {
-	
+
 	/**
 	 * Run the migrations.
 	 *
@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
+			$table->string('user_type');
 			$table->string('subject');
 			$table->text('body');
 			$table->timestamps();

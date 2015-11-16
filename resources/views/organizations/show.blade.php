@@ -6,5 +6,8 @@
     <p>
       {{$organization->description}}
     </p>
+    {!! Form::open(['url' => 'home/accept-organization/'.$organization->id]) !!}
+    {!! Form::submit('connect')!!}
+    {!! Form::close() !!}
 
 @stop

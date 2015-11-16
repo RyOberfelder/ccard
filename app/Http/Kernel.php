@@ -28,6 +28,8 @@ class Kernel extends HttpKernel {
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
 		'organization' => 'App\Http\Middleware\RedirectIfNotAnOrganization',
+		'userMiddleware' => 'App\Http\Middleware\UserMiddleware',
+		'postMiddleware' => 'App\Http\Middleware\PostMiddleware',
 	];
 
 }

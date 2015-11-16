@@ -11,10 +11,10 @@
         {{$event->description}}
       </p>
       <p>
-        {{$event->event_due}} , {{$event->event_time}} 
+        {{$event->event_due}} , {{$event->event_time}}
       </p>
       <p>
-        {{$event->eventable_type == 'App\User' ? $event->eventable->uname : 'this is an organization event'}}
+            {{$event->eventable_type == 'App\User' ? $event->eventable->uname : $event->eventable->title}}
       </p>
   </div>
     @endforeach
