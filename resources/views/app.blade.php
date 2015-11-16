@@ -56,7 +56,7 @@
             <li {{ Request::is( 'users') ? 'class=active' : '' }}><a href="/users">Users</a></li>
             <li {{ Request::is( 'organizations') ? 'class=active' : '' }}><a href="/organizations">Organizations</a></li>
             <li {{ Request::is( 'events') ? 'class=active' : '' }}><a href="/events">Events</a></li>
-            <li {{ Request::is( 'news') ? 'class=active' : 'class=disabled' }}><a href="/news">News</a></li>
+            <li {{ Request::is( 'news') ? 'class=active' : '' }}><a href="/articles">News</a></li>
             <li {{ Request::is( 'connections') ? 'class=active' : '' }}><a href="/connections">Connections</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
