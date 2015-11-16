@@ -3,7 +3,7 @@
   <div class="panel-body">
     <div>
       <p>
-        username: {{$user->uname}} <br />
+        username: <i>{{$user->uname}} </i> <br />
         user email: {{$user->email}}<br />
         user first name:{{$user->fname}} <br />
         user last name: {{$user->lname}}<br />
@@ -13,6 +13,7 @@
         user description:<br/>
         {{$user->description}}
       </p>
+      @include('connections.create', ['user' => $user, 'authuser' => $authuser])
     </div>
   </div>
 </div>

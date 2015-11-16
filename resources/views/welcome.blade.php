@@ -52,7 +52,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="disabled" ><a href="/posts">Posts <span class="sr-only">(current)</span></a></li>
-            <li class="disabled"><a href="/users">Users</a></li>
+            <li><a href="/users">Users</a></li>
             <li class="disabled"><a href="/organizations">Organizations</a></li>
             <li class="disabled"><a href="/events">Events</a></li>
             <li class="disabled"><a href="/comments">Comments</a></li>

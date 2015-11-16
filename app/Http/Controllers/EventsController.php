@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Event;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -15,6 +16,18 @@ class EventsController extends Controller {
 	public function index()
 	{
 		//
+	}
+	public function home(){
+		$events = $this->getAuthUser()->events;
+		$users = $this->getAuthUser()->connections;
+		foreach ($users as $user)
+			$uevents = $user->events;
+			if(!empty($uevents)){
+				foreach($uevents as $event)
+					$events[] = $event;
+			}
+
+		return view('home.events')->with('events', $events);
 	}
 
 	/**
@@ -32,10 +45,19 @@ class EventsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
-	}
+	 public function store(Request $request)
+ 	{
+ 		$this->validate($request, [
+ 		'title' => 'required',
+		'event_due' => 'required',
+ 		]);
+
+ 		$event = new Event($request->all());
+
+ 		$this->getAuthUser()->events()->save($event);
+
+ 		return redirect('/home/events');
+ 	}
 
 	/**
 	 * Display the specified resource.
@@ -79,6 +101,10 @@ class EventsController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	function getAuthUser(){
+		return \Auth::user();
 	}
 
 }
