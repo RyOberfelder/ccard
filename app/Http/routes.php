@@ -25,6 +25,7 @@ Route::resource('organizations', 'OrganizationsController');
 Route::resource('comments', 'CommentsController');
 Route::resource('events', 'EventsController');
 Route::resource('articles', 'ArticlesController');
+Route::post('articles', 'ArticlesController@store');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
