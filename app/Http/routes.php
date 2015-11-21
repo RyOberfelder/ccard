@@ -15,6 +15,8 @@ Route::get('/', function(){
   return view('welcome.index');
 });
 
+Route::post('/search/username', 'UsersController@userNameSearch');
+
 //the following are organisation Routes
 Route::post('posts/organizations', 'PostsController@Ostore');
 Route::post('events/organizations', 'EventsController@Ostore');
@@ -26,7 +28,7 @@ Route::get('/home/organizations/events', 'OrganizationsController@events');
 Route::get('/home/organizations/connections', 'OrganizationsController@connections');
 Route::get('/home/organizations/users', 'OrganizationsController@users');
 Route::get('/home/organization/{id}', 'OrganizationsController@toAssume');
-Route::post('/home/accept-organization/{$id}', 'OrganizationsController@accept');
+Route::post('/home/accept-organization/{id}', 'OrganizationsController@accept');
 
 // the following are normal home routes
 Route::get('/home', 'HomeController@index');

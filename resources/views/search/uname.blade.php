@@ -1,5 +1,9 @@
+@extends('app')
+
+@section('content')
+
 <div class="user-wall">
-<h1>Your Connections</h1>
+<h1>Users</h1>
 
 @foreach($users as $user)
   <div class='user'>
@@ -15,12 +19,10 @@
     <h5>
       Email: {{$user->email}}
     </h5>
-    <p>
-      {{$user}}
-    </P>
-    <p>
-      {{$user->pivot->connection_id}}
-    </p>
   </div>
 
 @endforeach
+
+</div>
+
+@stop

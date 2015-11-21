@@ -1,10 +1,27 @@
 @extends('home')
 
 @section('main')
-<div class="panel panel-default col-md-5">
   <div class="panel-body">
-    @include('posts.index', ['posts' => $posts])
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Posts</h2>
+      </div>
+      <div class="panel-body">
+
+
+        @foreach($posts as $post)
+        <div class="well well-sm">
+          <span><a href="/posts/{{$post->id}}">{{$post->subject}}</a></span>
+          <p>
+            {{$post->body}}
+          </p>
+          <p>
+            {{$post->creator}}
+          </p>
+      </div>
+        @endforeach
+      </div>
+    </div>
 		@include('posts.create')
   </div>
-</div>
 @endsection

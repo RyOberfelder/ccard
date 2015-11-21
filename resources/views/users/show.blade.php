@@ -13,6 +13,9 @@
         user description:<br/>
         {{$user->description}}
       </p>
+      <p>
+        The City is '{{$user->getLocation()}}'
+      </p>
       @include('connections.create', ['user' => $user, 'authuser' => $authuser])
     </div>
   </div>

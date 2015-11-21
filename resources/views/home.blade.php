@@ -63,12 +63,12 @@
                       {{  \Auth::user()->uname}}
                     </a>
                 </li>
-                <li {{ Request::is( 'home/posts') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/posts">Posts</a></li>
-                <li {{ Request::is( 'home/users') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/users">Users</a></li>
-                <li {{ Request::is( 'home/organizations') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/organizations">Organizations</a></li>
-                <li {{ Request::is( 'home/events') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/events">Events</a></li>
-                <li {{ Request::is( 'home/news') ? 'class=sidebar-nav-li-active' : 'class=sidebar-nav-li-disabled' }}><a href="/home/news">News</a></li>
-                <li {{ Request::is( 'home/connections') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/connections">Connections</a></li>
+                <li {{ Request::is( 'home/posts') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/posts">My Posts</a></li>
+                <li {{ Request::is( 'home/users') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/users">My Connections</a></li>
+                <li {{ Request::is( 'home/organizations') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/organizations">My Organizations</a></li>
+                <li {{ Request::is( 'home/events') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/events">My Events</a></li>
+                <li {{ Request::is( 'home/news') ? 'class=sidebar-nav-li-active' : 'class=sidebar-nav-li-disabled' }}><a href="/home/news">My News</a></li>
+                <li {{ Request::is( 'home/connections') ? 'class=sidebar-nav-li-active' : '' }}><a href="/home/connections">My Connection Requests</a></li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

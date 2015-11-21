@@ -2,7 +2,6 @@
 
 @section('main')
 
-<div class="panel panel-default col-md-5">
   <div class="panel-body">
     @foreach($events as $event)
     <div class="well well-sm">
@@ -20,5 +19,4 @@
     @endforeach
 		@include('events.create')
   </div>
-</div>
 @endsection

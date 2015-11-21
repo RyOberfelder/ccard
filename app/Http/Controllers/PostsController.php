@@ -12,7 +12,7 @@ class PostsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('postMiddleware', ['only' => ['update', 'destroy']]);
+		//$this->middleware('postMiddleware', ['only' => ['update', 'destroy']]);
 	}
 
 	public function index(){
@@ -35,19 +35,22 @@ class PostsController extends Controller {
 		$posts = $this->getAuthUser()->posts;
 		$users = $this->getAuthUser()->connections;
 		$organizations = $this->getAuthUser()->organizations;
-		foreach ($users as $user)
+		foreach ($users as $user){
 			$uposts = $user->posts;
 			if(!empty($uposts)){
-				foreach($uposts as $post)
+				foreach($uposts as $post){
 					$posts[] = $post;
+				}
 			}
-		foreach($organizations as $organization)
+		}
+		foreach($organizations as $organization){
 			$uposts = $organization->posts;
 			if(!empty($uposts)){
-				foreach($uposts as $post)
+				foreach($uposts as $post){
 					$posts[] = $post;
+				}
 			}
-
+		}
 		return view('home.posts')->with('posts', $posts);
 	}
 	public function show($id){

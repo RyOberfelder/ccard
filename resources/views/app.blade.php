@@ -59,16 +59,14 @@
             <li {{ Request::is( 'news') ? 'class=active' : '' }}><a href="/articles">News</a></li>
             <li {{ Request::is( 'connections') ? 'class=active' : '' }}><a href="/connections">Connections</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+          {!! Form::open(['method' => 'POST','name' => 'searchForm','url' => '/search/username', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Search">
+          </div>
+            {!! Form::submit('Submit', ['class' => 'btn btn-default', 'placeholder' => 'Search']) !!}
+          {!! Form::close() !!}
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/auth/register">Register Now</a></li>
-            <li><a href="/auth/login">Login</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
+            <li><a class="glyphicon glyphicon-log-out" href="/auth/logout"> Logout</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

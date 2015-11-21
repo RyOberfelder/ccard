@@ -21,6 +21,15 @@ class UsersController extends Controller {
 			->with('users', $users)
 			->with('authuser', $this->getAuthUser());
 	}
+
+	public function userNameSearch(){
+		$name = \Input::get('name');
+		$users = User::where('uname',  'LIKE', '%'.$name.'%')->get();
+
+		return view('search.uname')
+			->with('users', $users)
+			->with('authuser', $this->getAuthUser());
+	}
 	public function home(){
 
 			$users = $this->getAuthUser()->connections;

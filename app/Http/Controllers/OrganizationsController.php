@@ -22,8 +22,9 @@ class OrganizationsController extends Controller {
 
 	public function home(){
 
+			$egos = $this->getAuthUser()->leadsOrgs;
 			$organizations = $this->getAuthUser()->organizations;
-			return view('home.organizations', compact('organizations'));
+			return view('home.organizations')->with('organizations', $organizations)->with('egos', $egos);
 
 	}
 
@@ -91,6 +92,7 @@ class OrganizationsController extends Controller {
 
     $organization = Organization::create($store);
 		$organization->addUser($this->getAuthUser());
+		$this->getAuthUser()->leadsOrgs()->save($organization);
     return redirect('/home/organizations');
   }
 

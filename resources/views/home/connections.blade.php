@@ -2,17 +2,9 @@
 
 @section('main')
 
-<div class="panel panel-default col-md-5">
-  <div class="panel-body">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2 class="panel-title">Posts</h2>
-      </div>
-      <div class="panel-body">
-
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">Posts</h2>
+            <h2 class="panel-title">Connections</h2>
           </div>
           <div class="panel-body">
 
@@ -39,11 +31,4 @@
           </div>
         </div>
 
-
-      </div>
-    </div>
-
-
-  </div>
-</div>
 @endsection

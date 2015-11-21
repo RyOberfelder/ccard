@@ -33,7 +33,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function posts()
 	{
-		return $this->morphMany('App\Post', 'user');
+		$myposts =$this->morphMany('App\Post', 'user');
+		return $myposts;
+
 	}
 
 	public function isAnOrganization(){
@@ -50,6 +52,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function organizations()
 	{
 			return $this->belongsToMany('App\Organization', 'organizations_users', 'user_id', 'organization_id');
+	}
+
+	public function leadsOrgs()
+	{
+			return $this->hasMany('App\Organization', 'creator_id');
 	}
 
 	public function connections()
@@ -71,4 +78,27 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			return $this->morphMany('App\Event', 'eventable');
 	}
 
+	public function getLocation(){
+		$location ="";
+
+		if($this->city!=Null){
+			$location = $location . $this->city;
+		}
+		if($this->state!=Null){
+			if($location != ""){
+				$location = $location . ", ";
+			}
+			$location = $location . $this->state;
+		}
+		if($this->country!=Null){
+			if($location != ""){
+				$location = $location . ", ";
+			}
+			$location = $location . $this->country;
+		}
+		if($location == ""){
+			$location = $location . "None provided";
+		}
+		return $location;
+	}
 }
