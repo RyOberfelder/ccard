@@ -64,7 +64,7 @@ class ConnectRequestsController extends Controller {
 
 		User::findOrFail($id)->connectRequests()->save($connectRequest);
 
-		return redirect('/home/connections');
+		return redirect('/users');
 	}
 
 	/**

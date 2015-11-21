@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading clearfix">
-    Organizations
+    Subscribed Organizations
     <button type="button" class="btn btn-default btn-sm pull-right glyphicon glyphicon-cog" data-toggle="modal" data-target="#becomeOrganizationModal">
       Settings
     </button>

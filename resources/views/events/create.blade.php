@@ -2,7 +2,7 @@
 
 {!! Form::open(['url' => 'events']) !!}
 <div class="post-form-title">
-  {!! Form::label('title','Event Title:') !!}
+  {!! Form::label('title','*Event Title:') !!}
   {!! Form::text('title') !!}
 </div>
 <div class="post-form-description">
@@ -10,12 +10,13 @@
   {!! Form::textarea('description') !!}
 </div>
 <div class="post-form-date">
-  {!! Form::label('event_due','Event Date:') !!}
+  {!! Form::label('event_due','*Event Date:') !!}
   {!! Form::input('date','event_due') !!}
 </div>
 <div class="post-form-time">
-  {!! Form::label('event_time','Event Date:') !!}
+  {!! Form::label('event_time','Event Time:') !!}
   {!! Form::input('time','event_time') !!}
 </div>
 {!! Form::submit('Submit Event')!!}
 {!! Form::close() !!}
+@include('errors.list')

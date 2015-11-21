@@ -17,6 +17,8 @@
 
     @yield('extraHeader')
 
+    @yield('extraScripts')
+
     <style>
     div.user-wall{
       display:block;
