@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading clearfix">
-    Subscribed Organizations
+    Organizations
     <button type="button" class="btn btn-default btn-sm pull-right glyphicon glyphicon-cog" data-toggle="modal" data-target="#becomeOrganizationModal">
       Settings
     </button>
@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-lg-6">
                   <div class="organization-wall">
+                    <h3> Subscribed Organizations<h3>
                   @foreach($organizations as $organization)
                     <div class='organization'>
                       <h3>
