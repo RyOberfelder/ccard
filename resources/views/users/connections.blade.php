@@ -15,12 +15,6 @@
     <h5>
       Email: {{$user->email}}
     </h5>
-    <p>
-      {{$user}}
-    </P>
-    <p>
-      {{$user->pivot->connection_id}}
-    </p>
   </div>
 
 @endforeach
