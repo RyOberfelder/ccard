@@ -15,6 +15,7 @@
     <h5>
       Email: {{$user->email}}
     </h5>
+    
   </div>
 
 @endforeach
