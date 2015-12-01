@@ -12,7 +12,7 @@ protected $fillable = ['title', 'password', 'city', 'state', 'country', 'descrip
 
 	public function posts()
 	{
-		return $this->morphMany('App\Post', 'user');
+		return $this->morphMany('App\Post', 'writer');
 	}
 
 	public function events()

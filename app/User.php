@@ -33,8 +33,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function posts()
 	{
-		$myposts =$this->morphMany('App\Post', 'user');
-		return $myposts;
+		return $this->morphMany('App\Post', 'writer');
 
 	}
 

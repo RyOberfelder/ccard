@@ -17,8 +17,11 @@ Route::get('/', function(){
 
 Route::post('/search/username', 'UsersController@userNameSearch');
 
+//the following are protected routes
+Route::get('posts-protected/{id}', 'PostsController@protected_show');
+
 //the following are organisation Routes
-Route::post('posts/organizations', 'PostsController@Ostore');
+Route::post('posts/organizations/{id}', 'PostsController@Ostore');
 Route::post('events/organizations', 'EventsController@Ostore');
 Route::get('/home/organizations/logout', 'OrganizationsController@toRemove');
 Route::get('/home/organizations/home', 'OrganizationsController@organizationHome');

@@ -2,6 +2,7 @@
 
 use App\Post;
 use App\User;
+use App\Organization;
 use App\Http\Requests;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,7 @@ class PostsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		//$this->middleware('postMiddleware', ['only' => ['update', 'destroy']]);
+		$this->middleware('postMiddleware', ['only' => ['update', 'destroy', 'show']]);
 	}
 
 	public function index(){
@@ -51,14 +52,22 @@ class PostsController extends Controller {
 				}
 			}
 		}
-		return view('home.posts')->with('posts', $posts);
+		return view('home.posts')->with('posts', $posts)->with('user', $this->getAuthUser())->with('egos', $this->getAuthUser()->leadsOrgs);
 	}
 	public function show($id){
 
 		$post = Post::findOrFail($id);
-		$user = User::findOrFail($post->user_id);
+		$writer = $post->writer();
 
-		return view('posts.show')->with('post', $post)->with('user', $user);
+		return view('posts.show')->with('post', $post)->with('writer', $writer);
+	}
+
+	public function protected_show($id){
+
+		$post = Post::findOrFail($id);
+		$user = $post->creator;
+
+		return view('posts.protected_show')->with('post', $post)->with('user', $user);
 	}
 	public function update($id, PostRequest $request){
 
@@ -79,13 +88,13 @@ class PostsController extends Controller {
 
 		return redirect()->back();
 	}
-	public function Ostore(PostRequest $request){
+	public function Ostore($id, PostRequest $request){
 
 		$post = new Post($request->all());
+		$organization = Organization::findOrFail($id);
+		$organization->posts()->save($post);
 
-		session('organization')->posts()->save($post);
-
-		return redirect('/home/organizations/posts');
+		return redirect('/home/posts');
 	}
 	public function edit($id){
 		$post = Post::findOrFail($id);

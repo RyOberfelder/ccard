@@ -112,7 +112,7 @@ class ConnectRequestsController extends Controller {
 			->where('user_id', $this->getAuthUser()->id)
 			->where('authuser_id', $id)->delete();
 
-			return redirect('home/connections');
+			return redirect('home/users');
 	}
 
 	public function getAuthUser(){

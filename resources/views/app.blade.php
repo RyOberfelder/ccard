@@ -18,24 +18,6 @@
     @yield('extraHeader')
 
     @yield('extraScripts')
-
-    <style>
-    div.user-wall{
-      display:block;
-      width:800px;
-      padding: 20px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    div.user{
-      background-color: #FAF0ED;
-      border: 2px #878280 solid;
-      border-radius: 20px;
-      width: auto;
-      padding: 10px 20px;
-      margin: 10px 0px;
-    }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-default" margin-bottom="0px">
@@ -54,12 +36,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li {{ Request::is( 'posts') ? 'class=active' : '' }}><a href="/posts">Posts</a></li>
             <li {{ Request::is( 'users') ? 'class=active' : '' }}><a href="/users">Users</a></li>
             <li {{ Request::is( 'organizations') ? 'class=active' : '' }}><a href="/organizations">Organizations</a></li>
             <li {{ Request::is( 'events') ? 'class=active' : '' }}><a href="/events">Events</a></li>
-            <li {{ Request::is( 'news') ? 'class=active' : '' }}><a href="/articles">News</a></li>
-            <li {{ Request::is( 'connections') ? 'class=active' : '' }}><a href="/connections">Connections</a></li>
           </ul>
           {!! Form::open(['method' => 'POST','name' => 'searchForm','url' => '/search/username', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
           <div class="form-group">

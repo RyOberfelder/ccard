@@ -1,4 +1,3 @@
-<div class="user-wall">
 <h1>Your Connections</h1>
 
 @foreach($users as $user)
@@ -15,7 +14,7 @@
     <h5>
       Email: {{$user->email}}
     </h5>
-    
+
   </div>
 
 @endforeach

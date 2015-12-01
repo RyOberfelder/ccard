@@ -1,6 +1,6 @@
-@extends('app')
+@extends('home')
 
-@section('content')
+@section('main')
 
 <div class="user-wall">
 <h1>Users</h1>

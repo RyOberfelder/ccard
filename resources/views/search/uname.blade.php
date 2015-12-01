@@ -1,10 +1,10 @@
-@extends('app')
+@extends('home')
 
-@section('content')
+@section('main')
 
 <div class="user-wall">
 <h1>Users</h1>
-
+{!! count($users) == 0 ? '<p> Sorry, Your query returned no results close to that username...</p>' : ''; !!}
 @foreach($users as $user)
   <div class='user'>
     <h3>

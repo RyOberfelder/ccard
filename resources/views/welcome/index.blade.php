@@ -66,9 +66,6 @@
                         <a class="page-scroll" href="/auth/login">Login</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/auth/logout">Logout</a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="#contact">Contact RR</a>
                     </li>
                 </ul>
@@ -103,7 +100,7 @@
                     <h2 class="section-heading">What is the Red Directory?</h2>
                     <hr class="light">
                     <p class="text-faded">Our project is to build a directory for people involved with the fight against HIV/AIDS.  We are providing a profile system that allows users to browse and connect with others. This will be similar to sites such as Facebook and LinkedIn.</p>
-                    <a href="#contact" class="btn btn-default btn-xl page-scroll">Register Now!</a>
+                    <a href="/auth/register" class="btn btn-default btn-xl page-scroll">Register Now!</a>
                 </div>
             </div>
         </div>

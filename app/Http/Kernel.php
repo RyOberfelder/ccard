@@ -30,6 +30,7 @@ class Kernel extends HttpKernel {
 		'organization' => 'App\Http\Middleware\RedirectIfNotAnOrganization',
 		'userMiddleware' => 'App\Http\Middleware\UserMiddleware',
 		'postMiddleware' => 'App\Http\Middleware\PostMiddleware',
+		'connectMiddleware' => 'App\Http\Middleware\ConnectMiddleware',
 	];
 
 }

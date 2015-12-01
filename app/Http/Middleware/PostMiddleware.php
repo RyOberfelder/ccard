@@ -1,6 +1,7 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use App\Post;
 
 class PostMiddleware {
 
@@ -13,22 +14,20 @@ class PostMiddleware {
 	 */
 	 public function handle($request, Closure $next)
 	 {
-		// return $request;
-		 /*
-		 if($request->user_type == 'App\User'){
-			 if (!$request->creator->id == \Auth::user()->id) {
-					 return redirect()->back();
-			 }
-		 }else{
-			 if(session('organization') != null){
-				 if (!$request->creator->id == session('organization')->id) {
-						 return redirect()->back();
-				 }
-			 }
-		 }
-		 */
-
-			 return $next($request);
+		$tempPost = Post::findOrFail($request->segment(2));
+		if($request->segment(1) == "posts" && $request->isMethod('GET')){
+			if(\Auth::user()->id == $tempPost->user_id ){
+				return redirect(action ('PostsController@protected_show', $tempPost->id));
+			}else{
+					return $next($request);
+			}
+		}else{
+			if(\Auth::user()->id == $tempPost->user_id ){
+					return $next($request);
+			}else{
+				return redirect()->back();
+			}
+		}
 	 }
 
 }

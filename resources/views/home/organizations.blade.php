@@ -6,7 +6,7 @@
   <div class="panel-heading clearfix">
     Organizations
     <button type="button" class="btn btn-default btn-sm pull-right glyphicon glyphicon-cog" data-toggle="modal" data-target="#becomeOrganizationModal">
-      Settings
+      Settings:
     </button>
   </div>
   <div class="panel-body">
@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-6">
                   <div class="organization-wall">
-                    <h3> Subscribed Organizations<h3>
+                    <h3> Subscribed Organizations</h3>
                   @foreach($organizations as $organization)
                     <div class='organization'>
                       <h3>
@@ -38,7 +38,7 @@
 
                   {!! Form::open(['url' => 'organizations']) !!}
                   <div class="organization-form-title">
-                    {!! Form::label('title','Organization Name:') !!}
+                    {!! Form::label('title','*Organization Name:') !!}
                     {!! Form::text('title') !!}
                   </div>
                   <div class="organization-form-city">
@@ -54,15 +54,17 @@
                     {!! Form::text('country') !!}
                   </div>
                   <div class="organization-form-type">
-                    {!! Form::label('type','Organization Type:') !!}
+                    {!! Form::label('type','*Organization Type:') !!}
                     {!! Form::text('type') !!}
                   </div>
                   <div class="organization-form-description">
-                    {!! Form::label('description','description:') !!}
+                    {!! Form::label('description','*Description:') !!}
                     {!! Form::textarea('description') !!}
                   </div>
                   {!! Form::submit('Submit Organization')!!}
                   {!! Form::close() !!}
+
+                  @include('errors.list')
 
                 </div>
             </div>

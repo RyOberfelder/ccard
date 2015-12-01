@@ -25,3 +25,19 @@
 		@include('posts.create')
   </div>
 @endsection
+
+@section('extraScripts')
+<!-- This is going to be the script section -->
+<script>
+
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  $('#post-creator-select').change(function(e){
+    $('#post-form').attr('action', 'http://homestead.app:8888/posts/organizations/' + e.target.value);
+
+    console.log($('#post-form').attr('action'));
+  });
+});
+</script>
+
+@endSection

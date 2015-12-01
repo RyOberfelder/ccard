@@ -57,9 +57,6 @@ $(document).ready(function() {
   <button type="button" class="btn btn-default" id="calendar-next-button">Next</button>
 </div>
 <div id='calendar'></div>
-		@include('events.create')
-
-
 
   <!-- Modal -->
   <div class="modal fade" id="eventViewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -67,7 +64,7 @@ $(document).ready(function() {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Event Description</h4>
+          <h4 class="modal-title" id="myModalLabel">Organization Alter-Egos</h4>
         </div>
         <div class="modal-body">
   <!-- This is the become organization section -->
@@ -82,6 +79,7 @@ $(document).ready(function() {
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

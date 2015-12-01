@@ -1,3 +1,7 @@
+@extends('home')
+
+@section('main')
+
 <div class="panel panel-default">
   <div class="panel-heading">{{$user->uname}}</div>
   <div class="panel-body">
@@ -20,3 +24,7 @@
     </div>
   </div>
 </div>
+
+@endsection
+
+@stop

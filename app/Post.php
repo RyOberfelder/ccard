@@ -9,6 +9,11 @@ class Post extends Model {
 			'body'
 		];
 
+		public function writer()
+{
+		return $this->morphTo()->getResults();
+}
+
 		public function user()
     {
         return $this->hasOne('App\User');

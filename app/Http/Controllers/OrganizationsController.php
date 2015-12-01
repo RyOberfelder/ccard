@@ -88,7 +88,9 @@ class OrganizationsController extends Controller {
     return view('organizations.create');
   }
   public function store(){
+
     $store = Request::all();
+		//return $store;
 
     $organization = Organization::create($store);
 		$organization->addUser($this->getAuthUser());

@@ -6,7 +6,7 @@
       <div class="panel-body">
         @foreach($events as $event)
         <div class="well well-sm">
-          <span><a href="/posts/{{$event->id}}">{{$event->title}}</a></span>
+          <span><a href="/events/{{$event->id}}">{{$event->title}}</a></span>
           <p>
             {{$event->description}}
           </p>

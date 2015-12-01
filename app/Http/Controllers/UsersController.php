@@ -11,6 +11,7 @@ class UsersController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('userMiddleware', ['only' => [ 'destroy']]);
+		$this->middleware('connectMiddleware', ['only' => ['accept']]);
 	}
 
 	public function index(){
@@ -33,7 +34,15 @@ class UsersController extends Controller {
 	public function home(){
 
 			$users = $this->getAuthUser()->connections;
-			return view('home.users', compact('users'));
+			$connectRequests = $this->getAuthUser()->connectRequests;
+			$connections = array();
+			foreach ($connectRequests as $connectRequest){
+				$connections[] = User::findOrFail($connectRequest->authuser_id);
+			}
+
+
+
+			return view('home.users')->with('users', $users)->with('connections', $connections);
 
 	}
 	public function show($id){
@@ -57,12 +66,13 @@ class UsersController extends Controller {
 	public function accept($id){
 
 		User::findOrFail($id)->addConnection($this->getAuthUser());
+		$this->getAuthUser()->addConnection(User::findOrFail($id));
 
 		\DB::table('connect_requests')
 			->where('user_id', $this->getAuthUser()->id)
 			->where('authuser_id', $id)->delete();
 
-		return redirect('/home/connections');
+		return redirect('/home/users');
 	}
 	public function destroy($id)
 	{

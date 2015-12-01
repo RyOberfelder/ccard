@@ -1,6 +1,6 @@
-@extends('app')
+@extends('home')
 
-@section('content')
+@section('main')
 
 <h1>organizations</h1>
 <div class="organization-wall">
