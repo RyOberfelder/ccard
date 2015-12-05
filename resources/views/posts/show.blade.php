@@ -6,5 +6,7 @@
     <p>
       {{$post->body}}
     </p>
-</h3> {{$writer}}</h3>
+
+  </h3> {{ $writer->uname == null ?  $writer->title : $writer->uname  }}</h3>
+
 @stop

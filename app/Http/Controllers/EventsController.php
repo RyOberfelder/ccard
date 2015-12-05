@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Event;
+use App\Organization;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -43,10 +44,13 @@ class EventsController extends Controller {
 			}
 
 
-		return view('home.events')->with('events', $events);
+		return view('home.events')
+		->with('events', $events)
+		->with('user', $this->getAuthUser())
+		->with('egos', $this->getAuthUser()->leadsOrgs);
 	}
 
-	public function Ostore(Request $request){
+	public function Ostore(Request $request ,$id){
 
 		$this->validate($request, [
 		'title' => 'required',
@@ -55,9 +59,9 @@ class EventsController extends Controller {
 
 		$event = new Event($request->all());
 
-		session('organization')->events()->save($event);
+		Organization::findOrFail($id)->events()->save($event);
 
-		return redirect('/home/organizations/events');
+		return redirect('/home/events');
 	}
 
 	/**

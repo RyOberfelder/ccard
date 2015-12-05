@@ -1,6 +1,6 @@
 <h1> Write new Event </h1>
 
-{!! Form::open(['url' => 'events']) !!}
+{!! Form::open(['url' => 'events', 'id' => 'event-form']) !!}
 <div class="post-form-title">
   {!! Form::label('title','*Event Title:') !!}
   {!! Form::text('title') !!}
@@ -17,6 +17,12 @@
   {!! Form::label('event_time','Event Time:') !!}
   {!! Form::input('time','event_time') !!}
 </div>
+<select id="event-creator-select" width="90px"  class="form-control">
+  <option value={{$user->id}}>{{$user->uname}}</option>
+  @foreach($egos as $ego)
+  <option value={{$ego->id}} >{{$ego->title}}</option>
+  @endforeach
+</select>
 {!! Form::submit('Submit Event')!!}
 {!! Form::close() !!}
 @include('errors.list')

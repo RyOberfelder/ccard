@@ -22,7 +22,9 @@ $(document).ready(function() {
     var theEvents =  {!! $events !!}
     var arrayEvents = [];
     $.each(theEvents, function( index, value ) {
-      arrayEvents.push({title: value.title, start: value.event_due, description: value.description});
+      arrayEvents.push({title: value.title, start: value.event_due, description: value.description, writerType: value.eventable_type, writerId: value.eventable_id});
+
+      console.log(value)
     });
 
   var ourCal =  $('#calendar').fullCalendar({
@@ -32,6 +34,12 @@ $(document).ready(function() {
           $("#show-event-title").html( '<h4> Title: </h4>' + calEvent.title );
           $("#show-event-date").html( '<h4> Event Date: </h4>' + calEvent.start.format("dddd, MMMM Do YYYY, h:mm:ss a"));
           $("#show-event-description").html( '<h4> Description: </h4>' + calEvent.description );
+          console.log(calEvent.writerType)
+          if(calEvent.writerType == 'App\\User'){
+              $("#show-event-creator").html( '<h4> creator: </h4>' + '<a href="../users/' +calEvent.writerId+'">' + "Click Here to see user" +'</a>'  );
+          }else{
+            $("#show-event-creator").html( '<h4> creator: </h4>' + '<a href="../organizations/' +calEvent.writerId+'">' + "Click Here to see organization" +'</a>'  );
+          }
           $('#eventViewModal').modal('show');
           }
     });
@@ -45,6 +53,15 @@ $(document).ready(function() {
     });
 
 
+});
+
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  $('#event-creator-select').change(function(e){
+    $('#event-form').attr('action', 'http://homestead.app:8888/events/organizations/' + e.target.value);
+
+    console.log($('#event-form').attr('action'));
+  });
 });
 </script>
 
@@ -76,6 +93,7 @@ $(document).ready(function() {
                   <p id="show-event-title"></p>
                   <p id="show-event-date"></p>
                   <p id="show-event-description"></p>
+                  <p id="show-event-creator"></p>
                 </div>
               </div>
 

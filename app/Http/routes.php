@@ -21,8 +21,8 @@ Route::post('/search/username', 'UsersController@userNameSearch');
 Route::get('posts-protected/{id}', 'PostsController@protected_show');
 
 //the following are organisation Routes
-Route::post('posts/organizations/{id}', 'PostsController@Ostore');
-Route::post('events/organizations', 'EventsController@Ostore');
+Route::post('/posts/organizations/{id}', 'PostsController@Ostore');
+Route::post('/events/organizations/{id}', 'EventsController@Ostore');
 Route::get('/home/organizations/logout', 'OrganizationsController@toRemove');
 Route::get('/home/organizations/home', 'OrganizationsController@organizationHome');
 Route::get('/home/organizations/posts', 'OrganizationsController@posts');
