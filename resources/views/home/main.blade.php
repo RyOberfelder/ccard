@@ -4,24 +4,29 @@
 
   <div class="panel-body">
     <div class="panel panel-default">
-      <div class="panel-heading clearfix">
-          {{$user->uname}}
-          <!-- Button trigger modal -->
-    <button type="button" class="btn btn-default btn-med pull-right glyphicon glyphicon-cog" data-toggle="modal" data-target="#myModal">
-      Settings
-    </button>
+      <div class="panel-heading">
+      	<div class="panel-title">
+        
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-default btn-med pull-right glyphicon glyphicon-cog" data-toggle="modal" data-target="#myModal">
+			  Settings
+			</button>
+        	
+        	<h3> {{$user->uname}} </h3>
+        </div>
       </div>
+      
       <div class="panel-body">
         <div>
           <p>
-            username: <i>{{$user->uname}} </i> <br />
-            email: {{$user->email}}<br />
-            first name:{{$user->fname}} <br />
-            last name: {{$user->lname}}<br />
-            location: {{$user->getLocation()}} <br />
+            Username: <i>{{$user->uname}} </i> <br />
+            Email: {{$user->email}}<br />
+            First Name: {{$user->fname}} <br />
+            Last Name: {{$user->lname}}<br />
+            Location: {{$user->getLocation()}} <br />
           </p>
           <p>
-            user description:<br/>
+            User Description:<br/>
             {{$user->description}}
           </p>
         </div>
@@ -35,7 +40,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">User Settings</h4>
       </div>
       <div class="modal-body">
 
@@ -47,7 +52,7 @@
 
         <!-- This is the delete seciton of the modal    -->
         <h4>Delete This Profile</h4>
-        <span>Would you like to delete this profile?</span>
+        <span>Would you like to delete this profile? </span>
         {!! Form::open([
             'method' => 'DELETE',
             'route' => ['users.destroy', $user->id]
@@ -57,7 +62,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

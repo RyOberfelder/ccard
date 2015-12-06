@@ -52,10 +52,13 @@ $(document).ready(function() {
 
 @section('main')
 
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default" id="calendar-previous-button">Previous</button>
-  <button type="button" class="btn btn-default" id="calendar-next-button">Next</button>
+<div class="col-sm-5">
+	<div class="btn-group" role="group" aria-label="...">
+	  <button type="button" class="btn btn-default" id="calendar-previous-button">Previous Month</button>
+	  <button type="button" class="btn btn-default" id="calendar-next-button">Next Month</button>
+	</div>
 </div>
+
 <div id='calendar'></div>
 
   <!-- Modal -->
@@ -64,7 +67,7 @@ $(document).ready(function() {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Organization Alter-Egos</h4>
+          <h4 class="modal-title" id="myModalLabel">Event Description</h4>
         </div>
         <div class="modal-body">
   <!-- This is the become organization section -->
@@ -79,7 +82,6 @@ $(document).ready(function() {
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

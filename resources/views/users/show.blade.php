@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="panel panel-default">
-  <div class="panel-heading">{{$user->uname}}</div>
+  <div class="panel-heading"><h3>{{$user->uname}}</h3></div>
   <div class="panel-body">
     <div>
       <p>
@@ -20,8 +20,10 @@
       <p>
         The City is '{{$user->getLocation()}}'
       </p>
-      @include('connections.create', ['user' => $user, 'authuser' => $authuser])
     </div>
+  </div>
+  <div class="panel-footer">
+    @include('connections.create', ['user' => $user, 'authuser' => $authuser])
   </div>
 </div>
 

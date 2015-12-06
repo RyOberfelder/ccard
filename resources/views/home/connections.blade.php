@@ -12,7 +12,7 @@
             @foreach($users as $user)
             <div class="well well-sm">
               <p>
-                You have a request from {{$user->uname}}
+                You have a request from: {{$user->uname}}
               </p>
               <p>
                 {!! Form::open(['url' => 'home/accept-connection/'.$user->id]) !!}

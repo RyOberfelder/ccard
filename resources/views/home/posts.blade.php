@@ -8,7 +8,6 @@
       </div>
       <div class="panel-body">
 
-
         @foreach($posts as $post)
         <div class="well well-sm">
           <span><a href="/posts/{{$post->id}}">{{$post->subject}}</a></span>
@@ -18,7 +17,7 @@
           <p>
             {{$post->creator}}
           </p>
-      </div>
+        </div>
         @endforeach
       </div>
     </div>

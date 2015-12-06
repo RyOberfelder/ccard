@@ -69,14 +69,26 @@ $( document ).ready(function() {
 
 @section('main')
 
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default" id="calendar-previous-button">Previous</button>
-  <button type="button" class="btn btn-default" id="calendar-next-button">Next</button>
+<div class="col-sm-5">
+	<div class="btn-group" role="group" aria-label="...">
+	  <button type="button" class="btn btn-default" id="calendar-previous-button">Previous Month</button>
+	  <button type="button" class="btn btn-default" id="calendar-next-button">Next Month</button>
+	</div>
 </div>
+
 <div id='calendar'></div>
+
+<br><br>
+		
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1 class="panel-title"> Create a New Event </h1>
+	</div>	
+	
+	<div class="panel-body">
 		@include('events.create')
-
-
+	</div>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="eventViewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

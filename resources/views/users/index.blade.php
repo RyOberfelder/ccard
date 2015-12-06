@@ -3,25 +3,27 @@
 @section('main')
 
 <div class="user-wall">
-<h1>Users</h1>
+<h3>Users</h3>
 
 @foreach($users as $user)
-  <div class='user'>
-    <h3>
-      User Name: <a href="{{ url('/users', $user->id) }}">{{$user->uname}}</a>
-    </h3>
-    <h5>
-      First Name: {{$user->fname}}
-    </h5>
-    <h5>
-      Last Name: {{$user->lname}}
-    </h5>
-    <h5>
-      Email: {{$user->email}}
-    </h5>
-  </div>
+	<div class="well well-sm">
+	  <div class='user'>
+		<h4>
+		  User Name: <a href="{{ url('/users', $user->id) }}">{{$user->uname}}</a>
+		</h4>
+		<p>
+		  First Name: {{$user->fname}}
+		</p>
+		<p>
+		  Last Name: {{$user->lname}}
+		</p>
+		<p>
+		  Email: {{$user->email}}
+		</p>
+	  </div>
+	</div>  
 
-@endforeach
+	@endforeach
 
 </div>
 

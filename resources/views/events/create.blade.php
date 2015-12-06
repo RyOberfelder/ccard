@@ -1,12 +1,10 @@
-<h1> Write new Event </h1>
-
 {!! Form::open(['url' => 'events', 'id' => 'event-form']) !!}
 <div class="post-form-title">
   {!! Form::label('title','*Event Title:') !!}
   {!! Form::text('title') !!}
 </div>
 <div class="post-form-description">
-  {!! Form::label('description','Event Description:') !!}
+  {!! Form::label('description','Description:') !!}
   {!! Form::textarea('description') !!}
 </div>
 <div class="post-form-date">
@@ -22,7 +20,7 @@
   @foreach($egos as $ego)
   <option value={{$ego->id}} >{{$ego->title}}</option>
   @endforeach
-</select>
+</select><br>
 {!! Form::submit('Submit Event')!!}
 {!! Form::close() !!}
 @include('errors.list')

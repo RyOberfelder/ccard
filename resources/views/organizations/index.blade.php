@@ -2,13 +2,15 @@
 
 @section('main')
 
-<h1>organizations</h1>
+
 <div class="organization-wall">
+
+<h3>Organizations</h3>
 @foreach($organizations as $organization)
-  <div class='organization'>
-    <h3>
-      <a href="/organizations/{{$organization->id}}">{{$organization->title}}</a>
-    </h3>
+  <div class='well well-sm'>
+    <h4>
+      Organization: <a href="/organizations/{{$organization->id}}">{{$organization->title}}</a>
+    </h4>
     <p>
       Location: {{$organization->city}}, {{$organization->state}}, {{$organization->country}}
     </p>
