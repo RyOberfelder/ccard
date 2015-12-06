@@ -43,7 +43,7 @@ class EventsController extends Controller {
 					$events[] = $event;
 			}
 
-
+		
 		return view('home.events')
 		->with('events', $events)
 		->with('user', $this->getAuthUser())
