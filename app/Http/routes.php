@@ -11,11 +11,16 @@
 |
 */
 
+Route::get('/faq', function(){
+  return view('faq');
+});
 Route::get('/', function(){
   return view('welcome.index');
 });
 
 Route::post('/search/username', 'UsersController@userNameSearch');
+
+
 
 //the following are protected routes
 Route::get('posts-protected/{id}', 'PostsController@protected_show');

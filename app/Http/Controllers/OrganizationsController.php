@@ -81,7 +81,12 @@ class OrganizationsController extends Controller {
 
     $organization = Organization::findOrFail($id);
 
-    return view('organizations.show')->with('organization', $organization);
+		$theVal = empty($this->getAuthUser()->organizations()->where('id', $id));
+		if(!$theVal){
+			return view('organizations.protectedShow')->with('organization', $organization);
+		}else{
+    	return view('organizations.show')->with('organization', $organization);
+		}
   }
   public function create(){
 
